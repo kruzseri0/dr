@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>С Днём Рождения, Папа!</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="desktop" aria-label="Поздравление для компьютера">
+      <h1>Папа (больше, чем отец)</h1>
+      <h2>Ю а зе бест</h2>
+
+      <div class="marquee" aria-label="Бегущая строка">
+        <div class="marquee-track">
+          <span>С днем рождения! &nbsp; С днем рождения! &nbsp; С днем рождения! &nbsp; С днем рождения! &nbsp;</span>
+          <span>С днем рождения! &nbsp; С днем рождения! &nbsp; С днем рождения! &nbsp; С днем рождения! &nbsp;</span>
+        </div>
+      </div>
+
+      <div class="photos">
+        <figure class="photo left reveal">
+          <div class="photo-card">
+            <img src="fun.png" alt="Весёлое фото" />
+            <figcaption>Веселись!</figcaption>
+          </div>
+        </figure>
+
+        <figure class="photo right reveal">
+          <div class="photo-card">
+            <img src="kaif.png" alt="Фото кайф" />
+            <figcaption>Кайфуй!</figcaption>
+          </div>
+        </figure>
+
+        <figure class="photo left duo reveal">
+          <div class="photo-card">
+            <div class="duo-images">
+              <img src="punk1.png" alt="Панк фото 1" />
+            </div>
+            <figcaption>Панкуй!</figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="mobile" aria-label="Сообщение для телефона">
+      <p>Ага! Открыл с телефона? Нет уж, давай нормально - открой с компа.</p>
+    </section>
+  </main>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.22 });
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
+</body>
+</html>
